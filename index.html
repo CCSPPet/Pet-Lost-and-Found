@@ -2,15 +2,24 @@
 <html  lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <title>
     Pet Lost & Found
     </title>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>    
     <script src="js/main.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<!--    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBHWBR0_jb3j_7QskSxQKtdTvcOHkG6CNU&sensor=true"></script>-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=drawing"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="css/bootstrap-theme.min.css"></script>  
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
+    
 </head>
 <body>
 <!--navbar   -->
@@ -37,6 +46,7 @@
     </ul>
   </div>
 </div>
+
 <!--Body   -->
 <div class="container-fluid">
   <div class="row-fluid">
@@ -44,7 +54,7 @@
       <!--Sidebar content-->
 <form class="form-horizontal">
   <fieldset>
-    <legend>Legend</legend>
+    <legend>動物資料</legend>
     
     
     <div class="form-group">
@@ -109,10 +119,14 @@
     </div>
   </fieldset>
 </form>       
-    <div class="span10">
+    
+
+</div>
+     <div class="span10">
       <!--Body content-->
-    </div>
-  </div>
+    <div id="map_canvas"></div> 
+    </div> 
+      
 </div>    
     
     
