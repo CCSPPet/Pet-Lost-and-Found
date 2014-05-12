@@ -9,17 +9,24 @@ $('#post').click(function(){
 });
 
 //取消    
-$('#cancel').click(function(){
+$('.cancel').click(function(){
     $('#form').addClass('hide')
     $('#blackcover').addClass('hide')
     console.log('hide')
 });
 
+//增加懸賞    
+  $('#rewardBtn').click(function(){
+      $('<div class="form-group"><label for="inputEmail" class="col-lg-2 control-label">懸賞</label><div class="col-lg-10"><input type="text" class="form-control" id="inputEmail" placeholder="金錢或物品" ></div></div>').appendTo($('fieldset')).find('input').focus()
+      $('#rewardBtn').addClass('btn btn-info disabled')
+      
+      console.log('HEEE')
+});  
 
 
 
 
 
 
-
+//End
 });

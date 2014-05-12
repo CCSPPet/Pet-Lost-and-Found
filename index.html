@@ -24,7 +24,7 @@
 </head>
 <body>
 <!--navbar   -->
-<div class="navbar navbar-default">
+<div class="navbar navbar-inverse">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
       <span class="icon-bar"></span>
@@ -39,20 +39,16 @@
       <li><a href="#">Link</a></li>
       
     </ul>
-    <form class="navbar-form navbar-left">
-      <input type="text" class="form-control col-lg-8" placeholder="Search">
-    </form>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="https://github.com/CCSPPet/Pet-Lost-and-Found.git">Github</a></li>
     </ul>
+    <form class="navbar-form navbar-right">
+      <input type="text" class="form-control col-lg-8" placeholder="Search">
+    </form>  
   </div>
 </div>
    
-    <!--訊息-->
-<div class="alert alert-dismissable alert-success" id=welcomeMessage>
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
-</div>    
+
 
     
     
@@ -120,14 +116,21 @@
         <input type="text" class="form-control" id="inputEmail" placeholder="輸入地址或地標" >
       </div>
     </div>    
-      
+    
+    <div class="form-group" id=rewardForm>
+      <label for="inputEmail" class="col-lg-2 control-label"></label>
+      <div class="col-lg-10">
+        <button type="button" class="btn btn-info" style="margin-left: 30%" id="rewardBtn">提供懸賞</button>  
+      </div>
+    </div> 
+    
+  </fieldset>
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">取消</button>
+        <button type="button" class="btn btn-default, cancel" data-dismiss="modal">取消</button>
         <button type="submit" class="btn btn-primary">送出</button>
       </div>
     </div>
-  </fieldset>
 </form>       
     
 
@@ -135,18 +138,30 @@
     
 <!--Map     -->
 <div class="map">
+    <!--黑幕-->
     <div id="blackcover" class="hide"></div>       
     <div id="map_canvas"></div> 
-</div> 
     
     <!--按鈕-->
-<div id="postbtn">
-    <button type="button" class="btn btn-default btn-lg btn-block" id="post">張貼</button>
+        <div id="postbtn">
+            <button type="button" class="btn btn-default btn-lg btn-block" id="post">張貼</button>
+        </div>
+
+<!--側邊選單-->
+<div class="btn-group-vertical" id="sidepill">
+    <button type="button" class="btn btn-default">找動物</button>
+    <button type="button" class="btn btn-default">找主人</button>
+    <button type="button" class="btn btn-default">找醫院</button>
 </div>
+
+            <!--訊息-->
+        <div class="alert alert-dismissable alert-success, hide" id=welcomeMessage>
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+        </div>   
+</div> 
     
     
-   
- 
     
     
     
