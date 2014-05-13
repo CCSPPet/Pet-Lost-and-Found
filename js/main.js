@@ -33,9 +33,7 @@ function detectBrowser(){
         browser = 'Seriously? You are still using IE?';  
     }  
     return browser;  
-}  
-  
-// ===== 根據瀏覽器動態改變元素大小 ====== //  
+}    
 var browser = detectBrowser();  
 var isIE = navigator.userAgent.search("MSIE") > -1;  
 if (isIE) {
