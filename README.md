@@ -29,3 +29,13 @@ Google登入
 地圖置中
 
 輸入表單跳出
+
+
+
+
+安裝mongodb並開啟mongod.exe --dbpath "你想放資料庫的路徑"
+用node.js輸入node index.js開啟後
+網址打上localhost:5000 即可開啟網頁
+submit一定要輸入寵物名才會存
+localhost:5000\data 可看目前資料庫的data
+localhost:5000\clear 可清除所有data
