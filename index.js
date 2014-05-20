@@ -15,3 +15,10 @@ app.delete('/data/:id',data.del);
 app.get('/clear',data.clear);
 
 app.listen(5000, function () { console.log('Express server started at port 5000'); });
+
+
+
+$('#searchBtn').on('click',function(){
+    $("#search").hide( 'fold', options, 1000, callback );
+
+});    
