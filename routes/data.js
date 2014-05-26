@@ -10,6 +10,17 @@ exports.list = function(req,res){
 		res.json(datas);
 	});
 };
+exports.find = function(req,res){
+	console.log("find");
+	console.log(req.body);
+	Data.find(req.body,function(err,datas){
+		if(err){
+			console.error(err);
+			//res.json({error:err.name},500);
+		}
+		res.json(datas);
+	});
+};
 exports.save = function(req,res){
 	console.log("save");
 	console.log(req.body);
@@ -18,9 +29,10 @@ exports.save = function(req,res){
 	data.save(function(err,newData){
 		if(err){
 			console.error(err);
-			//res.json({error:err.name},500);
+			res.end("ERROR");
 		}
-		res.redirect('/');
+		res.end("SUCCESS");
+		//res.redirect('/');
 	});
 };
 exports.del = function(req,res){

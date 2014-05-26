@@ -10,7 +10,7 @@
     <script src="js/jquery-ui.min.js"></script>    
     <script src="js/bootstrap.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=drawing"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=drawing,places"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="css/bootstrap-theme.min.css"></script>  
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -26,7 +26,7 @@
 
 
 
-<form id='data' class="form-horizontal " action="data" method="post" id="postSection">
+<form id='data' class="form-horizontal " id="postSection">
   <fieldset>
     <legend>動物資料</legend>
     
@@ -34,7 +34,7 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">照片</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="輸入url" name="photo">
+        <input type="text" class="form-control"  placeholder="輸入url" name="photo">
       </div>
     </div>    
       
@@ -42,7 +42,7 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">動物名</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" name="name">
+        <input type="text" class="form-control" name="name">
       </div>
     </div>
     <div class="form-group" >
@@ -66,34 +66,34 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">品種名</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" name="breed">
+        <input type="text" class="form-control"  name="breed">
       </div>
     </div>  
       
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label" name="feature">特徵</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" >
+        <input type="text" class="form-control"  >
       </div>
     </div>  
     
     
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">走失地點</label>
+	  <button id="circle" class="btn btn-default">切換模式</button>
       <div class="col-lg-10">
         <input type="text" class="form-control" id="inputEmail" placeholder="輸入地址或地標" name="loseplace">
+		<button id="address" class="btn btn-default">轉換</button>
       </div>
     </div>    
-      
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" onclick="return senddata();" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </fieldset>
-</form>    
-    
+</form>   
     
     
 </body>

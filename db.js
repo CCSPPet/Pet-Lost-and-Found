@@ -9,7 +9,8 @@ var DataSchema = new Schema({
 	breed:{type:String},
 	feature:{type:String},
 	loseplace:{type:String},
-	map_pos:{type:String},
+	map_posk:{type:String},
+	map_posA:{type:String},
 	map_rad:{type:String}
 });
 mongoose.connect('mongodb://localhost/test');

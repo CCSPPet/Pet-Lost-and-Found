@@ -12,6 +12,7 @@ app.use(express.bodyParser());
 app.use(express.static('./public'));
 
 app.get('/data',data.list);
+app.post('/find',data.find);
 app.post('/data',data.save);
 app.delete('/data/:id',data.del);
 app.get('/clear',data.clear);
