@@ -10,7 +10,6 @@
     <script src="js/jquery-ui.min.js"></script>    
     <script src="js/bootstrap.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<!--    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBHWBR0_jb3j_7QskSxQKtdTvcOHkG6CNU&sensor=true"></script>-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=drawing"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="css/bootstrap-theme.min.css"></script>  
@@ -51,130 +50,17 @@
 <!--Body   -->
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span2">
+<!--    <div class="span2">-->
       <!--Sidebar content-->
 <!--搜尋   -->
-<form id='search' class="form-horizontal" >
-  <fieldset>
-    <legend>搜尋</legend>
 
-    
-    <div class="form-group" >
-      <label class="col-lg-2 control-label">動物種別</label>
-      <div class="col-lg-10">
-        <div class="radio">
-          <label>
-            <input type="radio" name="species" id="searchOptionDog" value="dog" checked="">
-              狗
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="species" id="searchOptionCat" value="cat">
-              貓
-          </label>
-        </div>
-      </div>
-    </div>
-      
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">品種名</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" name="breed">
-      </div>
-    </div>  
-      
-      
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">走失地點</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="輸入地址或地標" name="loseplace">
-      </div>
-    </div>    
-      
-   
-      
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button  class="btn btn-primary" id="searchBtn">Submit</button>
-      </div>
-    </div>
-  </fieldset>
-</form>               
-        
+<iframe src = "Search.html" class = "span2" frameborder = "0" scrolling = "no"></iframe>        
         
 <!--張貼        -->
-<form id='data' class="form-horizontal " action="data" method="post" id="postSection">
-  <fieldset>
-    <legend>動物資料</legend>
-    
-    
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">照片</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="輸入url" name="photo">
-      </div>
-    </div>    
-      
-      
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">動物名</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" name="name">
-      </div>
-    </div>
-    <div class="form-group" >
-      <label class="col-lg-2 control-label">動物種別</label>
-      <div class="col-lg-10">
-        <div class="radio">
-          <label>
-            <input type="radio" name="species" id="optionsRadios1" value="dog" checked="">
-              狗
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="species" id="optionsRadios2" value="cat">
-              貓
-          </label>
-        </div>
-      </div>
-    </div>
-      
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">品種名</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" name="breed">
-      </div>
-    </div>  
-      
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label" name="feature">特徵</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" >
-      </div>
-    </div>  
-    
-    
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">走失地點</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="輸入地址或地標" name="loseplace">
-      </div>
-    </div>    
-      
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" onclick="return senddata();" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-  </fieldset>
-</form>       
+
     
         
-</div>
+<!--</div>-->
      <div class="span10">
       <!--Body content-->
     <div id="map_canvas"></div> 
@@ -182,7 +68,7 @@
       
 </div>    
     
-    
+</div>    
     
 </body>
 </html>
