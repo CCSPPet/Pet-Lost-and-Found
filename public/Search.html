@@ -9,15 +9,14 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>    
     <script src="js/bootstrap.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=drawing"></script>
+   <!--   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=drawing,places"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="css/bootstrap-theme.min.css"></script>  
+   <!-- <script src="css/bootstrap-theme.min.css"></script>  -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
 <!--    自己寫的部份-->
-    <script src="js/main.js"></script>
-    <script src="js/map.js"></script>
+    <script src="js/search.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     
 </head>
@@ -52,7 +51,7 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">品種名</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" name="breed">
+        <input type="text" class="form-control"  name="breed">
       </div>
     </div>  
       
@@ -69,7 +68,7 @@
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
-        <button  class="btn btn-primary" id="searchBtn"><a href = "result.html">Submit</a></button>
+        <button type="submit" class="btn btn-primary" id="searchBtn">Submit</button>
       </div>
     </div>
   </fieldset>
