@@ -2,7 +2,7 @@
 (function(){
 		
 		//var input = $('#input');
-		var waitcircle;
+		var waitcircle = null ,waitmark = null;
 		var MAP;
 		var drawingManager;
 		var geocoder;
@@ -36,6 +36,11 @@
 			waitcircle = circle;
 			
 		});
+		google.maps.event.addListener(drawingManager, 'markercomplete', function(circle) {
+			if(waitmark!=null) waitmark.setMap(null);
+			waitmark = circle;
+			
+		});
 		drawingManager.setMap(map);
 		//var input = $('#iframe1').contents.getElementById('inputEmail');
 		//var auto = new google.maps.places.Autocomplete(input);
@@ -60,16 +65,18 @@
         });
 
 	  }
-	  window.drawcircle = function(option){
+	  window.changemode = function(option){
 		if(option==0){
 			drawingManager.setDrawingMode(null);
 			if(waitcircle!=null)waitcircle.setMap(null);
 			waitcircle = null;
+			if(waitmark!=null)waitmark.setMap(null);
+			waitmark = null;
 		}
-		else{
+		else if(option==1)
 			drawingManager.setDrawingMode(google.maps.drawing.OverlayType.CIRCLE);
-			
-		}
+		else if(option==2)
+			drawingManager.setDrawingMode(google.maps.drawing.OverlayType.MARKER);
 	  };
 	  clear = function(){
 		for(i=0; i<allmark.length; i+=1){
@@ -119,9 +126,21 @@
             s = s / 10000;  
             return s ;   
         }  
-	  window.search = function(data){
-			var place = data[data.length-1].value;
-			data.pop();
+	  window.search = function(tmp){
+			var place;
+			var data = [];
+			for(i=0;i<tmp.length;i++){
+				if(tmp[i].name=="loseplace"){
+					place = tmp[i].value;
+				}
+				else if(tmp[i].value!=""){
+					data.push(tmp[i]);
+				}
+			}
+			if(waitmark == null && place == ""){
+				alert("請輸入位置");
+				return false;
+			}
 			$.ajax({
 				data: data,
 				url: "find",
@@ -130,20 +149,35 @@
 				success: function(msg){
 					show(msg);
 					console.log(msg);
-					geocoder.geocode({'address':place},function(results,status){
-						if(status==google.maps.GeocoderStatus.OK){
-							var k = results[0].geometry.location.k;
-							var A = results[0].geometry.location.A;
-							MAP.panTo(results[0].geometry.location);
-							for(i=0;i<alldata.length;i++){
-								alldata[i].dis = getDistance(k,A,alldata[i].map_posk,alldata[i].map_posA);
-							}
-							alldata.sort(compare);
-						}
-					});
 					
+					if(waitmark != null){
+						var k = waitmark.position.k;
+						var A = waitmark.position.A;
+						MAP.panTo(waitmark.position);
+						for(i=0;i<alldata.length;i++){
+							alldata[i].dis = getDistance(k,A,alldata[i].map_posk,alldata[i].map_posA);
+						}
+						for(i=0;i<alldata.length;i++){
+							alldata[i].dis = getDistance(k,A,alldata[i].map_posk,alldata[i].map_posA);
+						}
+						alldata.sort(compare);
+					}
+					else if(place!=""){
+						geocoder.geocode({'address':place},function(results,status){
+							if(status==google.maps.GeocoderStatus.OK){
+								var k = results[0].geometry.location.k;
+								var A = results[0].geometry.location.A;
+								MAP.panTo(results[0].geometry.location);
+								for(i=0;i<alldata.length;i++){
+									alldata[i].dis = getDistance(k,A,alldata[i].map_posk,alldata[i].map_posA);
+								}
+								alldata.sort(compare);
+							}
+						});
+					}
 				}
 			});
+			return true;
 	  }
 	  window.senddata = function(data){
 			//alert("QQQ");

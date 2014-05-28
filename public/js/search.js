@@ -3,11 +3,24 @@ $(document).ready(function(){
 
 
 	$('form').submit(function(){
-		parent.search($(this).serializeArray());
-		window.location = "result.html";
+		if(parent.search($(this).serializeArray()))
+			window.location = "result.html";
 		return false;
 	});
-	
+	var mode = 0;
+	$('#mode').click(function(){
+		if(mode==0){
+			mode = 2;
+			$(this).parent().find('input').css("display","none");
+		}
+		else{
+			mode = 0;
+			$(this).parent().find('input').css("display","block");
+		}
+		parent.changemode(mode);
+		
+		return false;
+	});
 //end    
 });    
 

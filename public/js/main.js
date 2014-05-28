@@ -7,8 +7,15 @@ $(document).ready(function(){
 	var mode = 0;
 		
 	$('#circle').click(function(){
-		mode = !mode;
-		parent.drawcircle(mode);
+		if(mode==0){
+			mode = 1;
+			$(this).parent().find('input').css("display","none");
+		}
+		else{
+			mode = 0;
+			$(this).parent().find('input').css("display","block");
+		}
+		parent.changemode(mode);
 		return false;
 	});
     $('#address').click(function(){
