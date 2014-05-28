@@ -89,7 +89,7 @@
 		clear();
 		alldata = data;
 		for(i=0; i<data.length; i+=1){	
-			placeCircle(new google.maps.LatLng(data[i].map_posk,data[i].map_posA),parseFloat(data[i].map_rad), MAP,data[i].name);
+			placeCircle(new google.maps.LatLng(data[i].map_posk,data[i].map_posA),parseFloat(data[i].map_rad), MAP,data[i].name,alldata[i]);
 		}
 	  }
 	  window.setAddress = function(add){
@@ -149,7 +149,7 @@
 				success: function(msg){
 					show(msg);
 					console.log(msg);
-					
+					drawingManager.setDrawingMode(null);
 					if(waitmark != null){
 						var k = waitmark.position.k;
 						var A = waitmark.position.A;
@@ -216,8 +216,8 @@
 		//	waitcircle.setMap(null);
 		//	waitcircle = null;
 	 // };
-	  function placeCircle(position,radius, map,content) {
-	  console.log(radius);
+	  function placeCircle(position,radius, map,content,now) {
+			console.log(radius);
 			var infowindow = new google.maps.InfoWindow({
 				content: content
 			});
@@ -233,6 +233,14 @@
 				});
 			google.maps.event.addListener(marker, 'click', function() {
 				infowindow.open(map,marker);
+			});
+			google.maps.event.addListener(circle, 'mouseover', function() {
+				circle.setOptions({fillColor:'#FFFFFF'});
+				now.mouse = true;
+			});
+			google.maps.event.addListener(circle, 'mouseout', function() {
+				circle.setOptions({fillColor:'#000000'});
+				now.mouse = false;
 			});
 			allmark.push({marker:marker,circle:circle});
 			map.panTo(position);
