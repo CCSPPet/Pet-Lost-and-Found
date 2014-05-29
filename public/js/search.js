@@ -8,6 +8,7 @@ $(document).ready(function(){
 		return false;
 	});
 	var mode = 0;
+	
 	$('#mode').click(function(){
 		
         if(mode==0){

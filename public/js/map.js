@@ -126,6 +126,10 @@
             s = s / 10000;  
             return s ;   
         }  
+	  window.showinfo = function(now){
+		allmark[now].infowindow.open(MAP,allmark[now].marker);
+		MAP.panTo(allmark[now].marker.position);
+	  }
 	  window.search = function(tmp){
 			var place;
 			var data = [];
@@ -147,34 +151,39 @@
 				type:"POST",
 				dataType:'json',
 				success: function(msg){
-					show(msg);
-					console.log(msg);
 					drawingManager.setDrawingMode(null);
 					if(waitmark != null){
 						var k = waitmark.position.k;
 						var A = waitmark.position.A;
+						
+						for(i=0;i<msg.length;i++){
+							msg[i].dis = getDistance(k,A,msg[i].map_posk,msg[i].map_posA);
+						}
+						for(i=0;i<msg.length;i++){
+							msg[i].dis = getDistance(k,A,msg[i].map_posk,msg[i].map_posA);
+						}
+						msg.sort(compare);
+						show(msg);
+						console.log(msg);
 						MAP.panTo(waitmark.position);
-						for(i=0;i<alldata.length;i++){
-							alldata[i].dis = getDistance(k,A,alldata[i].map_posk,alldata[i].map_posA);
-						}
-						for(i=0;i<alldata.length;i++){
-							alldata[i].dis = getDistance(k,A,alldata[i].map_posk,alldata[i].map_posA);
-						}
-						alldata.sort(compare);
 					}
 					else if(place!=""){
 						geocoder.geocode({'address':place},function(results,status){
 							if(status==google.maps.GeocoderStatus.OK){
 								var k = results[0].geometry.location.k;
 								var A = results[0].geometry.location.A;
-								MAP.panTo(results[0].geometry.location);
-								for(i=0;i<alldata.length;i++){
-									alldata[i].dis = getDistance(k,A,alldata[i].map_posk,alldata[i].map_posA);
+								
+								for(i=0;i<msg.length;i++){
+									msg[i].dis = getDistance(k,A,msg[i].map_posk,msg[i].map_posA);
 								}
-								alldata.sort(compare);
+								msg.sort(compare);
+								show(msg);
+								console.log(msg);
+								MAP.panTo(results[0].geometry.location);
 							}
 						});
 					}
+					
 				}
 			});
 			return true;
@@ -242,7 +251,7 @@
 				circle.setOptions({fillColor:'#000000'});
 				now.mouse = false;
 			});
-			allmark.push({marker:marker,circle:circle});
+			allmark.push({marker:marker,circle:circle,infowindow:infowindow});
 			map.panTo(position);
 		}
 	  
