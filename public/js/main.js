@@ -47,6 +47,10 @@ $('.cancel').click(function(){
 });  
 
 
+$('#searchcancel').on('click',function(){
+    $('#searchform').addClass('hide');
+});
+
 
 //end    
 });    
