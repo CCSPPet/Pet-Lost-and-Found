@@ -11,13 +11,13 @@
     <script src="js/bootstrap.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <!--    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBHWBR0_jb3j_7QskSxQKtdTvcOHkG6CNU&sensor=true"></script>-->
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=drawing"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=drawing,places"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="css/bootstrap-theme.min.css"></script>  
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
 <!--    自己寫的部份-->
-    <script src="js/main.js"></script>
+    <script src="js/search2.js"></script>
     <script src="js/map.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     
@@ -65,13 +65,13 @@
       <div class="col-lg-10">
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <input type="radio" name="species" id="optionsRadios1" value="dog" checked="">
               狗
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            <input type="radio" name="species" id="optionsRadios2" value="cat">
               貓
           </label>
         </div>
@@ -79,24 +79,27 @@
     </div>
       
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">品種名</label>
+      <label for="inputEmail" class="col-lg-2 control-label" name="breed">品種名</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" >
+        <input type="text" class="form-control">
       </div>
     </div>  
       
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">特徵</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" >
+        <input type="text" class="form-control" >
       </div>
     </div>  
     
     
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">拾獲地點</label>
+	  <button id="mode" class="btn btn-default btn-success">在地圖上點選</button>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="輸入地址或地標" >
+        <input type="text" class="form-control" id="place" placeholder="輸入地址或地標" name="loseplace">
+      </div>
+	  <div class="col-lg-10" id="position">
       </div>
     </div>    
     
@@ -104,7 +107,7 @@
   </fieldset>
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>
         <button type="submit" class="btn btn-primary">送出</button>
       </div>
     </div>
@@ -152,14 +155,14 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">品種名</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" >
+        <input type="text" class="form-control"  >
       </div>
     </div>  
       
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">特徵</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" >
+        <input type="text" class="form-control" >
       </div>
     </div>  
     
@@ -167,7 +170,7 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">拾獲地點</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="輸入地址或地標" >
+        <input type="text" class="form-control"  placeholder="輸入地址或地標" >
       </div>
     </div>    
     
@@ -183,13 +186,24 @@
     
 
 </div>
-    
+
+<style>
+#panel{
+	position:absolute;
+	top: 70px;
+	left: 70%;
+}
+</style>
 <!--Map     -->
 <div class="map">
     <!--黑幕-->
     <div id="blackcover"></div>       
     <div id="map_canvas"></div> 
-    
+	<div id="panel">
+		<input id="mapadd" type="textbox">
+		<input id="mapaddbutton" type="button" value="移動">
+		<button id="mapenter" class="btn btn-default btn-success hide">確認</button>
+	</div>
     <!--按鈕-->
         <div id="postbtn">
             <button type="button" class="btn btn-default btn-lg btn-block" id="post">張貼</button>

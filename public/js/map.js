@@ -9,18 +9,25 @@
 		window.alldata = [];
 		var allmark = [];
 		function initialize() {
+		
+		$('#mapaddbutton').click(function(){
+			parent.callAddress();
+		});
+		
 		geocoder = new google.maps.Geocoder();
 		
         var mapOptions = {
           center: new google.maps.LatLng(25.037525,121.56378199999995),
           zoom: 15,
+		  streetViewControl:false,
+		  
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementById("map_canvas"),
             mapOptions);
-			google.maps.event.addListener(map, 'click', function(e) {
-				
-			});
+			//google.maps.event.addListener(map, 'click', function(e) {
+			//	
+			//});
 		MAP = map;
 		drawingManager = new google.maps.drawing.DrawingManager({
 			drawingControl: false,
@@ -64,6 +71,24 @@
                 }
         });
 
+	  }
+	  window.callAddress = function(){
+		var place = document.getElementById('mapadd').value;
+		geocoder.geocode({'address':place},function(results,status){
+			if(status==google.maps.GeocoderStatus.OK){
+				if(waitmark!=null)waitmark.setMap(null);
+				waitmark = new google.maps.Marker({
+							position: results[0].geometry.location,
+							map: MAP
+						});
+				MAP.panTo(results[0].geometry.location);
+			}	
+		});
+		
+	  }
+	  window.getposition = function(){
+		if(waitmark==null)return "illegal position";
+		else return JSON.stringify(waitmark.position);
 	  }
 	  window.changemode = function(option){
 		if(option==0){
@@ -131,6 +156,7 @@
 		MAP.panTo(allmark[now].marker.position);
 	  }
 	  window.search = function(tmp){
+			console.log(tmp);
 			var place;
 			var data = [];
 			for(i=0;i<tmp.length;i++){
@@ -226,7 +252,7 @@
 		//	waitcircle = null;
 	 // };
 	  function placeCircle(position,radius, map,content,now) {
-			console.log(radius);
+			//console.log(radius);
 			var infowindow = new google.maps.InfoWindow({
 				content: content
 			});
