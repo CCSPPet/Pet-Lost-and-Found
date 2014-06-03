@@ -82,3 +82,71 @@
 
 }
 
+
+
+/*按鈕*/
+#post{
+    position: fixed;
+
+    margin-top: -100px;
+    width:30%;
+}
+
+#postbtn{
+
+    margin-left: 35%;
+    margin-right: 35%:
+}
+/*隱藏*/
+.hide{
+    display:none;
+}
+
+
+
+#blackcover{
+    position: absolute;
+    background-color: black;
+    opacity: 0.8;
+    width:100%;
+    height:100%;
+    z-index: 2;
+
+}
+
+#form{
+    background-color: #E6E6E6; 
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 5%;
+    width:40%;  
+    z-index: 3;
+    
+}
+
+
+#searchform{
+    background-color: #E6E6E6; 
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 5%;
+    width:40%;  
+    z-index: 3;
+    
+}
+
+
+
+
+#welcomeMessage{
+    margin-top: -70px;
+    position: absolute;
+}
+
+
