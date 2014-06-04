@@ -271,7 +271,10 @@
 				radius: radius
 				});
 			google.maps.event.addListener(marker, 'click', function() {
-				infowindow.open(map,marker);
+				now.click = true;
+			});
+			google.maps.event.addListener(circle, 'click', function() {
+				now.click = true;
 			});
 			google.maps.event.addListener(circle, 'mouseover', function() {
 				circle.setOptions({fillColor:'#FFFFFF'});

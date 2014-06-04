@@ -176,5 +176,8 @@
     height: 200px;
     margin: 2px;
     background-color: red;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
