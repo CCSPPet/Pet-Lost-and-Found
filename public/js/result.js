@@ -1,8 +1,23 @@
 var page = 1;
 $(document).ready(function(){
   $('#page>li').on('click',function(){
-	page = $(this).text();
-  });
+		if($(this).text()=='«')
+			page--;
+		else if($(this).text()=='»')
+			page++;
+		else page = $(this).text();
+		if(page==0)page = 1;
+		
+		$('#page>li').each(function(i){
+			if(i==0||i==6)return;
+			var num = parseInt(page);
+			if(num<3)num=3;
+			num = num+i-3;
+			$(this).find('a').text(num);
+			if(num==page)$(this).addClass('disabled');
+			else $(this).removeClass('disabled');
+		});
+	});
   $("#backsearch").on('click',function(){
 	parent.changemode(0);
   });
@@ -14,9 +29,6 @@ $(document).ready(function(){
 			});
 		}
 	)
-  $('#page>li').on('click',function(){
-	page = $(this).text();
-  });
   update();
 });    
 update = function(){
@@ -49,8 +61,10 @@ update = function(){
 				else
 					$(this).css('background-color','');
 			}
-			else
+			else{
 				$(this).text("");
+				$(this).css('background-image','');
+			}
 			//console.log(parent.alldata[Math.floor(i/4)].mouse);
 			
 		}
