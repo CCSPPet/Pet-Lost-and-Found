@@ -3,7 +3,7 @@ $(document).ready(function(){
 
 
 	$('form').submit(function(){
-		if(parent.search($(this).serializeArray()))
+		if(parent.search($(this).serializeArray(),"find"))
 			window.location = "result.html";
 		return false;
 	});

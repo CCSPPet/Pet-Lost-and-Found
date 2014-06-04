@@ -22,12 +22,13 @@ $(document).ready(function(){
 update = function(){
 	$('tbody').find('td').each(
 		function(i){
+			
 			i = i+(page-1)*12;
 			if(i%4==0){
 				$(this).text(Math.floor(i/4)+1);
 				if(Math.floor(i/4)<parent.alldata.length){
 					if(parent.alldata[Math.floor(i/4)].mouse)
-						$(this).css('background-color','red');
+						$(this).css('background-color','#ecf0f1');
 					else
 						$(this).css('background-color','');
 				}
@@ -41,7 +42,7 @@ update = function(){
 					$(this).text(parent.alldata[Math.floor(i/4)].dis);
 				}
 				if(parent.alldata[Math.floor(i/4)].mouse)
-					$(this).css('background-color','red');
+					$(this).css('background-color','#ecf0f1');
 				else
 					$(this).css('background-color','');
 			}

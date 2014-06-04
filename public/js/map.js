@@ -8,6 +8,16 @@
 		var geocoder;
 		window.alldata = [];
 		var allmark = [];
+		var image = new google.maps.MarkerImage("image/tag1.png",
+			new google.maps.Size(60, 60),
+			new google.maps.Point(0,0),
+			new google.maps.Point(13,15)
+		);
+		var image2 = new google.maps.MarkerImage("image/tag2.png",
+			new google.maps.Size(60, 60),
+			new google.maps.Point(0,0),
+			new google.maps.Point(13,13)
+		);
 		function initialize() {
 		
 		$('#mapaddbutton').click(function(){
@@ -46,13 +56,13 @@
 		google.maps.event.addListener(drawingManager, 'markercomplete', function(circle) {
 			if(waitmark!=null) waitmark.setMap(null);
 			waitmark = circle;
-			
+			waitmark.setIcon(image2);
 		});
 		drawingManager.setMap(map);
 		//var input = $('#iframe1').contents.getElementById('inputEmail');
 		//var auto = new google.maps.places.Autocomplete(input);
 		
-		load(map);
+		//load(map);
       }
 	  
 	  function load(map){
@@ -159,7 +169,7 @@
 		//allmark[now].infowindow.open(MAP,allmark[now].marker);
 		MAP.panTo(allmark[now].marker.position);
 	  }
-	  window.search = function(tmp){
+	  window.search = function(tmp,type){
 			console.log(tmp);
 			var place;
 			var data = [];
@@ -175,6 +185,7 @@
 				alert("請輸入位置");
 				return false;
 			}
+			data.push({name:'type',value:type});
 			$.ajax({
 				data: data,
 				url: "find",
@@ -218,15 +229,15 @@
 			});
 			return true;
 	  }
-	  window.senddata = function(data){
+	  window.senddata = function(data,type){
 			//alert("QQQ");
-			if(waitcircle != null){
-				//data.map_pos = waitcircle.center;
-				//data.map_rad = waitcircle.radius;
-				data = data+"&map_posk="+waitcircle.center.k+"&map_posA="+waitcircle.center.A+"&map_rad="+waitcircle.radius;
-				
-				console.log(data);
+			data = data+"&type="+type;
+			if(waitcircle == null){
+				alert("請輸入位置");
 			}
+			
+			data = data+"&map_posk="+waitcircle.center.k+"&map_posA="+waitcircle.center.A+"&map_rad="+waitcircle.radius;
+			
 			
 			$.ajax({
 				data: data,
@@ -263,7 +274,8 @@
 			
 			var marker = new google.maps.Marker({
 				position: position,
-				map: map
+				map: map,
+				icon:image
 				});
 			var circle = new google.maps.Circle({
 				center: position,

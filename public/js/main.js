@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
 	$('form').submit(function(){
-		parent.senddata($(this).serialize());
+		parent.senddata($(this).serialize(),"loss");
 	});
 	var mode = 0;
 		

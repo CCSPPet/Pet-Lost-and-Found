@@ -20,7 +20,7 @@ $(document).ready(function(){
 	});
 
 	$('form').submit(function(){
-		if(window.search($(this).serializeArray())){
+		if(window.search($(this).serializeArray(),"loss")){
 			$('#searchform').addClass('hide');
 			$('#blackcover').addClass('hide');
 			$('#result').removeClass('hide');
@@ -88,8 +88,8 @@ updateinfo = function(num){
 			if(i==0)$(this).text("名字：");
 			else if(i==1)$(this).text("種別：");
 			else if(i==2)$(this).text("品種：");
-			else if(i==3)$(this).text("走失地點：");
-			else if(i==4)$(this).text("特徵：");
+			else if(i==3)$(this).text("特徵：");
+			else if(i==4)$(this).text("聯絡電話：");
 		});
 	}
 	else{
@@ -97,8 +97,8 @@ updateinfo = function(num){
 			if(i==0)$(this).text("名字："+parent.alldata[num].name);
 			else if(i==1)$(this).text("種別："+parent.alldata[num].species);
 			else if(i==2)$(this).text("品種："+parent.alldata[num].breed);
-			else if(i==3)$(this).text("走失地點："+parent.alldata[num].loseplace);
-			else if(i==4)$(this).text("特徵："+parent.alldata[num].feature);
+			else if(i==3)$(this).text("特徵："+parent.alldata[num].feature);
+			else if(i==4)$(this).text("聯絡電話："+parent.alldata[num].phone);
 		});
 	}
 	

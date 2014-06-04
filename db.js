@@ -3,12 +3,14 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 var DataSchema = new Schema({
-	name:{type:String,required: true},
+	name:{type:String},
 	photo:{type:String},
 	species:{type:String},
 	breed:{type:String},
 	feature:{type:String},
 	loseplace:{type:String},
+	phone:{type:String},
+	type:{type:String,required: true},
 	map_posk:{type:String,required: true},
 	map_posA:{type:String,required: true},
 	map_rad:{type:String}
