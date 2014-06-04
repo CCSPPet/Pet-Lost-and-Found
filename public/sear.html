@@ -1,0 +1,88 @@
+<!doctype html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>
+        Search
+    </title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>    
+    <script src="js/bootstrap.js"></script>
+   <!--   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=drawing,places"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+   <!-- <script src="css/bootstrap-theme.min.css"></script>  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+<!--    自己寫的部份-->
+    <script src="js/search.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+
+
+
+<div id='searchSection'>
+<form  class="form-horizontal" >
+  <fieldset>
+    <legend>搜尋</legend>
+
+    
+    <div class="form-group" >
+      <label class="col-lg-2 control-label">動物種別</label>
+      <div class="col-lg-10">
+        <div class="radio">
+          <label>
+            <input type="radio" name="species" id="searchOptionDog" value="dog" checked="">
+              狗
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="species" id="searchOptionCat" value="cat">
+              貓
+          </label>
+        </div>
+      </div>
+    </div>
+      
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">品種名</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control"  name="breed">
+      </div>
+    </div>  
+      
+      
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">走失地點</label>
+	  <button id="mode" class="btn btn-default btn-success">切換成地圖點選</button>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputEmail" placeholder="輸入地址或地標" name="loseplace">
+      </div>
+    </div>    
+    
+  
+      
+      
+   
+      
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="searchBtn">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>               
+</div>    
+  
+<ul class="pager">
+  <li><a href="post.html">張貼公告</a></li>
+</ul>     
+    
+    
+</body>
+</html>    
