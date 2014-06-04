@@ -156,7 +156,7 @@
             return s ;   
         }  
 	  window.showinfo = function(now){
-		allmark[now].infowindow.open(MAP,allmark[now].marker);
+		//allmark[now].infowindow.open(MAP,allmark[now].marker);
 		MAP.panTo(allmark[now].marker.position);
 	  }
 	  window.search = function(tmp){

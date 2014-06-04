@@ -60,17 +60,22 @@ $(document).ready(function(){
 	});
 	$('tbody').find('td').each(
 		function(i){
+			//i = i+(page-1)*5;
+			//if(i>=parent.alldata.length)return;
 			$(this).mouseenter(function(){
-				parent.changecolor(i,'#FFFFFF');
+				parent.changecolor(i+(page-1)*5,'#FFFFFF');
 				$(this).css('background-color','red');
 			});
 			$(this).mouseleave(function(){
-				parent.changecolor(i,'#000000');
+				parent.changecolor(i+(page-1)*5,'#000000');
 				$(this).css('background-color','');
 			});
 			$(this).click(function(){
-				updateinfo(i);
-				$('#information').removeClass('hide');
+				if(i+(page-1)*5<parent.alldata.length){
+					updateinfo(i+(page-1)*5);
+					parent.showinfo(i+(page-1)*5);
+					$('#information').removeClass('hide');
+				}
 			});
 		}
 	);
