@@ -30,6 +30,22 @@ $(document).ready(function(){
 	});
 	var mode = 0;
 	
+	$('#searchbutton').click(function(){
+		$('#searchform').removeClass('hide');
+		$('#blackcover').removeClass('hide');
+	});
+	$('#searchcancel').click(function(){
+		$('#searchform').addClass('hide');
+		$('#blackcover').addClass('hide');
+	});
+	$('#postbutton').click(function(){
+		$('#form').removeClass('hide');
+		$('#blackcover').removeClass('hide');
+	});
+	$('#postcancel').click(function(){
+		$('#form').addClass('hide');
+		$('#blackcover').addClass('hide');
+	});
 	$('#mode').click(function(){
 		if(mode==0){
 			mode = 2;

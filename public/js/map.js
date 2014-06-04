@@ -280,7 +280,8 @@
 			var circle = new google.maps.Circle({
 				center: position,
 				map: map,
-				radius: radius
+				radius: radius,
+				strokeWeight: 0
 				});
 			google.maps.event.addListener(marker, 'click', function() {
 				now.click = true;

@@ -33,8 +33,8 @@
 
 <div class="btn-group btn-group-justified" id="headbtn">
   <a href="index.html" class="btn btn-default">首頁</a>
-  <a href="#" class="btn btn-default">搜尋寵物主人</a>    
-  <a href="#" class="btn btn-default">張貼認領訊息</a>
+  <a id="searchbutton" class="btn btn-default">搜尋寵物主人</a>    
+  <a id="postbutton" class="btn btn-default">張貼認領訊息</a>
   <a href="https://github.com/CCSPPet/Pet-Lost-and-Found.git" class="btn btn-default">Github</a>
 </div>
 
@@ -50,7 +50,7 @@
 </div>
 
 
-<div id="searchform"  >
+<div id="searchform" class="hide" >
         <!--輸入表單-->
 <form class="form-horizontal">
   <fieldset>
@@ -128,7 +128,7 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">照片</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="輸入url">
+        <input type="text" class="form-control"  placeholder="輸入url">
       </div>
     </div>    
       
@@ -139,13 +139,13 @@
       <div class="col-lg-10">
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <input type="radio" name="optionsRadios" value="option1" checked="">
               狗
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            <input type="radio" name="optionsRadios" value="option2">
               貓
           </label>
         </div>
@@ -184,7 +184,7 @@
   </fieldset>
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="button" class="btn btn-default, cancel" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-default, cancel" data-dismiss="modal" id="postcancel">取消</button>
         <button type="submit" class="btn btn-primary">送出</button>
       </div>
     </div>
@@ -251,7 +251,7 @@
 <!--Map     -->
 <div class="map">
     <!--黑幕-->
-    <div id="blackcover"></div>       
+    <div id="blackcover" class="hide"></div>       
     <div class="foundmap"><div id="map_canvas" ></div></div> 
 	<div id="panel">
 		<input id="mapadd" type="textbox">
