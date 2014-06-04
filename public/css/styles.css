@@ -157,12 +157,20 @@
 }
 
 
-#welcomeMessage{
-    margin-top: -70px;
+
+#information{
+    background-color: #E6E6E6; 
+    padding: 10px;
+    border-radius: 10px;
     position: absolute;
+    margin-left: 50%;
+    margin-right: 30%;
+    margin-top: 5%;
+    width:40%;  
+    z-index: 3;
+    box-shadow: 4px 4px 12px 2px rgba(20%,20%,40%,0.5);
     
 }
-
 .resultphoto{
     width: 280px;    
     height: 200px;
