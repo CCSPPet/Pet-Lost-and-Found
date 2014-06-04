@@ -218,3 +218,19 @@
     margin-left: 30%;
     margin-right: 30%;
 }
+
+#panel{
+	position:absolute;
+	top: 70px;
+	left: 70%;
+    
+}
+
+#mapenter{
+    position: absolute;
+    width: 20%;
+    margin-top: 50%;
+    margin-left: 40%;
+    
+
+}
