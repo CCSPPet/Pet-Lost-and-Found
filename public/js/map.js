@@ -72,6 +72,10 @@
         });
 
 	  }
+	  window.changecolor = function(i,c){
+		if(allmark.length>i)
+			allmark[i].circle.setOptions({fillColor:c});
+	  };
 	  window.callAddress = function(){
 		var place = document.getElementById('mapadd').value;
 		geocoder.geocode({'address':place},function(results,status){

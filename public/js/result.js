@@ -51,5 +51,5 @@ update = function(){
 			
 		}
 	);
-	setTimeout(update,100);;
+	setTimeout(update,100);
 }
