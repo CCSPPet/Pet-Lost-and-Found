@@ -194,6 +194,7 @@
 </div>
 
 <div id="result" class="hide">
+<button type="button" class="close">×</button>
 <table>
     <tbody>
     <tr>
@@ -241,22 +242,18 @@
 
 
 
-<style>
-#panel{
-	position:absolute;
-	top: 70px;
-	left: 70%;
-}
-</style>
+
 <!--Map     -->
 <div class="map">
     <!--黑幕-->
     <div id="blackcover" class="hide"></div>       
     <div class="foundmap"><div id="map_canvas" ></div></div> 
-	<div id="panel">
+	<button id="mapenter" class="btn btn-default btn-success hide">確認</button>
+
+    <div id="panel">
 		<input id="mapadd" type="textbox">
 		<input id="mapaddbutton" type="button" value="移動">
-		<button id="mapenter" class="btn btn-default btn-success hide">確認</button>
+		
 	</div>
     <!--按鈕-->
         <div id="postbtn">
