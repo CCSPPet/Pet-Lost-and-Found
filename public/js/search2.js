@@ -25,46 +25,51 @@ $(document).ready(function(){
 			$('#blackcover').addClass('hide');
 			$('#result').removeClass('hide');
 		}
-			//window.location = "result.html";
 		return false;
 	});
 	$('#form').find('form').submit(function(){
-		console.log($(this).html());
 		if(parent.senddata($(this).serialize(),"find")){
-			$(this).addClass('hide');
+			$('#form').addClass('hide');
 			$('#blackcover').addClass('hide');
 		}
 		return false;
 	});
 	var mode = 0;
-	
+	var nowform = null;
 	$('#searchbutton').click(function(){
-		mode=0;
+		nowform = null;
+		mode = 0;
 		parent.changemode(mode);
+		$('#mode').parent().find('.position').text("");
+		$('#mode').parent().find('input').css("display","block");
+        $('#mode').text('在地圖上點選');
+		
 		$('#searchform').removeClass('hide');
 		$('#blackcover').removeClass('hide');
 		$('#mapenter').addClass('hide');
 	});
 	$('#searchcancel').click(function(){
-		mode=0;
-		parent.changemode(mode);
+		
 		$('#searchform').addClass('hide');
 		$('#blackcover').addClass('hide');
 	});
 	$('#postbutton').click(function(){
-		mode=0;
+		nowform = null;
+		mode = 0;
 		parent.changemode(mode);
+		$('#mode2').parent().find('.position').text("");
+		$('#mode2').parent().find('input').css("display","block");
+        $('#mode2').text('在地圖上點選');
+		
 		$('#form').removeClass('hide');
 		$('#blackcover').removeClass('hide');
 		$('#mapenter').addClass('hide');
 	});
 	$('#postcancel').click(function(){
-		mode=0;
-		parent.changemode(mode);
 		$('#form').addClass('hide');
 		$('#blackcover').addClass('hide');
 	});
-	var nowform = null;
+	
 	$('#mode').click(function(){
 		if(mode==0){
 			mode = 2;

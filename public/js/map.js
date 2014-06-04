@@ -66,6 +66,7 @@
       }
 	  
 	  function load(map){
+		/*
 		$.ajax({
             url: "data",
             type:"GET",
@@ -80,7 +81,7 @@
                 alert(thrownError); 
                 }
         });
-
+			*/
 	  }
 	  window.changecolor = function(i,c){
 		if(allmark.length>i)

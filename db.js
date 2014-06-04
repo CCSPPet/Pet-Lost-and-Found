@@ -15,7 +15,7 @@ var DataSchema = new Schema({
 	map_posA:{type:String,required: true},
 	map_rad:{type:String}
 });
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/test');
 
 mongoose.connection.once('error',function(err){
 	console.log(err);
