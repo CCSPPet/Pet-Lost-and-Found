@@ -230,13 +230,23 @@
 			return true;
 	  }
 	  window.senddata = function(data,type){
-			//alert("QQQ");
+			console.log(data);
 			data = data+"&type="+type;
-			if(waitcircle == null){
-				alert("請輸入位置");
+			if(type=='find'){
+				if(waitmark == null){
+					alert("請輸入位置");
+					return false;
+				}
+				data = data+"&map_posk="+waitmark.position.k+"&map_posA="+waitmark.position.A;
+			}
+			else{
+				if(waitcircle == null){
+					alert("請輸入位置");
+					return false;
+				}
+				data = data+"&map_posk="+waitcircle.center.k+"&map_posA="+waitcircle.center.A+"&map_rad="+waitcircle.radius;
 			}
 			
-			data = data+"&map_posk="+waitcircle.center.k+"&map_posA="+waitcircle.center.A+"&map_rad="+waitcircle.radius;
 			
 			
 			$.ajax({
@@ -246,13 +256,15 @@
 				success: function(msg){
 					alert(msg);
 					if(msg=="SUCCESS"){
-						waitcircle.setMap(null);
+						if(waitcircle!=null)waitcircle.setMap(null);
 						waitcircle = null;
+						if(waitmark!=null)waitmark.setMap(null);
+						waitmark = null;
 						load(MAP);
 					}
 				}
 			});
-			
+			return true;
 			//var tmp = '<input type="hidden" name="map_pos" value="'+waitcircle.center+'"></input>';
 			//var tmp2 = '<input type="hidden" name="map_rad" value="'+waitcircle.radius+'"></input>';
 			//$(tmp).appendTo($('#data'));

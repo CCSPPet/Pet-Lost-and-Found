@@ -90,7 +90,7 @@
       <div class="col-lg-10">
         <input type="text" class="form-control" id="place" placeholder="輸入地址或地標" name="loseplace">
       </div>
-	  <div class="col-lg-10" id="position">
+	  <div class="col-lg-10 position">
       </div>
     </div>    
       
@@ -118,7 +118,7 @@
 
     
 <!--post    -->
-<div id="form" class="hide" id="input">
+<div id="form" class="hide">
         <!--輸入表單-->
 <form class="form-horizontal">
   <fieldset>
@@ -128,7 +128,7 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">照片</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control"  placeholder="輸入url">
+        <input type="text" class="form-control"  placeholder="輸入url" name="photo">
       </div>
     </div>    
       
@@ -139,13 +139,13 @@
       <div class="col-lg-10">
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" value="option1" checked="">
+            <input type="radio" name="species" value="dog" checked="">
               狗
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" value="option2">
+            <input type="radio" name="species" value="cat">
               貓
           </label>
         </div>
@@ -155,22 +155,25 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">品種名</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control"  >
+        <input type="text" class="form-control" name="breed" >
       </div>
     </div>  
       
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">特徵</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" >
+        <input type="text" class="form-control" name="feature">
       </div>
     </div>  
     
     
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">拾獲地點</label>
+	  <button id="mode2" class="btn btn-default btn-success">在地圖上點選</button>
       <div class="col-lg-10">
-        <input type="text" class="form-control"  placeholder="輸入地址或地標" >
+        <input type="text" class="form-control"  placeholder="輸入地址或地標" name="loseplace">
+      </div>
+	  <div class="col-lg-10 position">
       </div>
     </div>    
      <div class="form-group">

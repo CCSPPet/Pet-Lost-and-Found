@@ -9,8 +9,8 @@ $(document).ready(function(){
   $('tbody').find('td').each(
 		function(i){
 			$(this).on('click',function(){
-				if(Math.floor((i+(page-1)*12)/4)<parent.alldata.length)
-					parent.showinfo(Math.floor((i+(page-1)*12)/4));
+				if(Math.floor((i+(page-1)*25)/4)<parent.alldata.length)
+					parent.showinfo(Math.floor((i+(page-1)*25)/4));
 			});
 		}
 	)
@@ -23,24 +23,27 @@ update = function(){
 	$('tbody').find('td').each(
 		function(i){
 			
-			i = i+(page-1)*12;
-			if(i%4==0){
-				$(this).text(Math.floor(i/4)+1);
-				if(Math.floor(i/4)<parent.alldata.length){
-					if(parent.alldata[Math.floor(i/4)].mouse)
+			i = i+(page-1)*25;
+			/*if(i%5==0){
+				$(this).text(Math.floor(i/5)+1);
+				if(Math.floor(i/5)<parent.alldata.length){
+					if(parent.alldata[Math.floor(i/5)].mouse)
 						$(this).css('background-color','#ecf0f1');
 					else
 						$(this).css('background-color','');
 				}
-			}
-			else if(Math.floor(i/4)<parent.alldata.length){
-				if(i%4==1)
-					$(this).text(parent.alldata[Math.floor(i/4)].name);
-				else if(i%4==2)
+			}*/
+			if(Math.floor(i/4)<parent.alldata.length){
+				if(i%4==0)
+					$(this).css('background-image','url('+parent.alldata[i].photo+')');
+					//$(this).html("<img src=\""+parent.alldata[Math.floor(i/5)].photo+"\">");
+				else if(i%4==1)
 					$(this).text(parent.alldata[Math.floor(i/4)].breed);
-				else if(i%4==3){
-					$(this).text(parent.alldata[Math.floor(i/4)].dis);
-				}
+				else if(i%4==2)
+					$(this).text(parent.alldata[Math.floor(i/4)].feature);
+				else if(i%4==3)
+					$(this).text(parent.alldata[Math.floor(i/4)].phone);
+				
 				if(parent.alldata[Math.floor(i/4)].mouse)
 					$(this).css('background-color','#ecf0f1');
 				else

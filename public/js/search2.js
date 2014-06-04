@@ -19,7 +19,7 @@ $(document).ready(function(){
 		});
 	});
 
-	$('form').submit(function(){
+	$('#searchform').find('form').submit(function(){
 		if(window.search($(this).serializeArray(),"loss")){
 			$('#searchform').addClass('hide');
 			$('#blackcover').addClass('hide');
@@ -28,27 +28,47 @@ $(document).ready(function(){
 			//window.location = "result.html";
 		return false;
 	});
+	$('#form').find('form').submit(function(){
+		console.log($(this).html());
+		if(parent.senddata($(this).serialize(),"find")){
+			$(this).addClass('hide');
+			$('#blackcover').addClass('hide');
+		}
+		return false;
+	});
 	var mode = 0;
 	
 	$('#searchbutton').click(function(){
+		mode=0;
+		parent.changemode(mode);
 		$('#searchform').removeClass('hide');
 		$('#blackcover').removeClass('hide');
+		$('#mapenter').addClass('hide');
 	});
 	$('#searchcancel').click(function(){
+		mode=0;
+		parent.changemode(mode);
 		$('#searchform').addClass('hide');
 		$('#blackcover').addClass('hide');
 	});
 	$('#postbutton').click(function(){
+		mode=0;
+		parent.changemode(mode);
 		$('#form').removeClass('hide');
 		$('#blackcover').removeClass('hide');
+		$('#mapenter').addClass('hide');
 	});
 	$('#postcancel').click(function(){
+		mode=0;
+		parent.changemode(mode);
 		$('#form').addClass('hide');
 		$('#blackcover').addClass('hide');
 	});
+	var nowform = null;
 	$('#mode').click(function(){
 		if(mode==0){
 			mode = 2;
+			nowform = $('#searchform');
 			$(this).parent().find('input').css("display","none");
             $(this).text('切換成輸入地址');
 			$('#searchform').addClass('hide');
@@ -56,7 +76,7 @@ $(document).ready(function(){
 			$('#mapenter').removeClass('hide');
 		}else{
 			mode = 0;
-			$('#position').text("");
+			$(this).parent().find('.position').text("");
 			$(this).parent().find('input').css("display","block");
             $(this).text('在地圖上點選');
             $('#mode').addClass('btn-success');
@@ -64,9 +84,28 @@ $(document).ready(function(){
 		parent.changemode(mode);
 		return false;
 	});
+	$('#mode2').click(function(){
+		if(mode==0){
+			mode = 2;
+			nowform = $('#form');
+			$(this).parent().find('input').css("display","none");
+            $(this).text('切換成輸入地址');
+			$('#form').addClass('hide');
+			$('#blackcover').addClass('hide');
+			$('#mapenter').removeClass('hide');
+		}else{
+			mode = 0;
+			$(this).parent().find('.position').text("");
+			$(this).parent().find('input').css("display","block");
+            $(this).text('在地圖上點選');
+            $('#mode2').addClass('btn-success');
+		}
+		parent.changemode(mode);
+		return false;
+	});
 	$('#mapenter').click(function(){
-		$('#position').text(parent.getposition());
-		$('#searchform').removeClass('hide');
+		nowform.find('.position').text(parent.getposition());
+		nowform.removeClass('hide');
 		$('#blackcover').removeClass('hide');
 		$('#mapenter').addClass('hide');
 		return false;

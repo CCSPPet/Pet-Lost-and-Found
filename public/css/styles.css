@@ -189,7 +189,14 @@
 	background-repeat: no-repeat;
 	background-position: center;
 }
-
+.resultphoto2{
+	width: 150px;    
+    height: 130px;
+	margin: 2px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
 #btns{
     display:block;
     margin-top: 45%;
