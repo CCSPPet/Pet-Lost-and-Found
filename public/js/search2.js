@@ -123,7 +123,7 @@ $(document).ready(function(){
 			//i = i+(page-1)*5;
 			//if(i>=parent.alldata.length)return;
 			$(this).mouseenter(function(){
-				parent.changecolor(i+(page-1)*5,'#FFFFFF');
+				parent.changecolor(i+(page-1)*5,'#009999');
 				$(this).css('background-color','red');
 			});
 			$(this).mouseleave(function(){
@@ -139,10 +139,10 @@ $(document).ready(function(){
 			});
 		}
 	);
+	parent.search([],"loss");
 	//end    
 });    
 updateinfo = function(num){
-	num = num+(page-1)*5;
 	if(num>=parent.alldata.length){
 		$('#information').find('h4').each(function(i){
 			if(i==0)$(this).text("名字：");
@@ -153,6 +153,7 @@ updateinfo = function(num){
 		});
 	}
 	else{
+		$('#petphoto').css('background-image','url('+parent.alldata[num].photo+')');
 		$('#information').find('h4').each(function(i){
 			if(i==0)$(this).text("名字："+parent.alldata[num].name);
 			else if(i==1)$(this).text("種別："+parent.alldata[num].species);
@@ -164,7 +165,13 @@ updateinfo = function(num){
 	
 }
 update = function(){
-	
+	for(i=0;i<parent.alldata.length;i++){	
+		if(parent.alldata[i].click== true){
+			updateinfo(i);
+			$('#information').removeClass('hide');
+			parent.alldata[i].click = false;
+		}
+	}
 	$('#result').find('.resultphoto').each(
 		function(i){
 			i = i+(page-1)*5;
@@ -172,11 +179,7 @@ update = function(){
 				$(this).css('background-image','url('+parent.alldata[i].photo+')');
 				
 				//$(this).html("<img src = \"" +parent.alldata[i].photo + "\" > ");
-				if(parent.alldata[i].click== true){
-					updateinfo(i);
-					$('#information').removeClass('hide');
-					parent.alldata[i].click = false;
-				}
+				
 				if(parent.alldata[i].mouse==1){
 					$(this).trigger("mouseenter");
 					parent.alldata[i].mouse = -1;

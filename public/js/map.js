@@ -171,6 +171,7 @@
 		MAP.panTo(allmark[now].marker.position);
 	  }
 	  window.search = function(tmp,type){
+			
 			console.log(tmp);
 			var place;
 			var data = [];
@@ -182,6 +183,7 @@
 					data.push(tmp[i]);
 				}
 			}
+			
 			if(waitmark == null && place == ""){
 				alert("請輸入位置");
 				return false;
@@ -193,7 +195,10 @@
 				type:"POST",
 				dataType:'json',
 				success: function(msg){
-					drawingManager.setDrawingMode(null);
+					if(tmp.length==0){
+						show(msg);
+						return;
+					}
 					if(waitmark != null){
 						var k = waitmark.position.k;
 						var A = waitmark.position.A;
@@ -303,7 +308,7 @@
 				now.click = true;
 			});
 			google.maps.event.addListener(circle, 'mouseover', function() {
-				circle.setOptions({fillColor:'#FFFFFF'});
+				circle.setOptions({fillColor:'#009999'});
 				now.mouse = true;
 			});
 			google.maps.event.addListener(circle, 'mouseout', function() {
